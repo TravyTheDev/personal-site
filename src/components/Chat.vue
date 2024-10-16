@@ -1,0 +1,163 @@
+<template>
+  <div class="mx-2">
+    <button @click="toggleChat" class="bg-slate-500 text-white text-right">{{ isOpen ? 'Close chat' : 'Open chat' }}</button>
+    <div v-if="isOpen" class="relative h-[75vh] flex flex-col overflow-y-hidden mx-auto max-w-screen-sm bg-zinc-800 text-white">
+      <div ref="chatBody" class="mx-2 h-[80vh] pb-4 overflow-y-auto chat-body whitespace-pre-line">
+        <div class="flex flex-col mx-2" v-for="message in messages">
+          <ChatMessage :message="message" :user-i-d="userID" :name="name" @remove="removeMessage" />
+        </div>
+      </div>
+      <div v-if="conn && name" class="w-full bg-zinc-800 border-t border-white">
+        <div class="bg-zinc-800 py-2 flex gap-2 max-w-screen-sm mx-2 text-nowrap">
+          <textarea @input="resize" ref="textArea" rows="1"
+            class="border rounded-sm w-full bg-zinc-800 my-0 py-2 overflow-y-hidden" v-model="sentMessage"></textarea>
+          <button @click="send">SEND>></button>
+          <p v-if="errorMessage">{{ errorMessage }}</p>
+        </div>
+      </div>
+      <EnterNameModal v-if="isShowEnterNameModal" @close-modal="toggleEnterNameModal" @send-name="setName" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
+import EnterNameModal from './EnterNameModal.vue';
+import { v4 as uuidv4 } from 'uuid';
+import ChatMessage from './ChatMessage.vue';
+
+const name = ref("")
+const isOpen = ref(false)
+const userID = uuidv4();
+const isShowEnterNameModal = ref(true)
+
+export type Message = {
+  userID: string;
+  name: string;
+  body: string;
+  messageID: string;
+};
+
+const messages = ref<Message[]>([]);
+const sentMessage = ref("");
+const chatBody = ref()
+const textArea = ref()
+const errorMessage = ref("")
+
+const conn = ref();
+
+const toggleChat = () => {
+  isOpen.value = !isOpen.value
+  if(isOpen.value){
+    name.value = ""
+    messages.value.length = 0
+  }else {
+    isShowEnterNameModal.value = true
+  }
+}
+
+const setWebsocket = () => {
+  conn.value = new WebSocket(
+    "ws://localhost:8080/chat"
+  );
+}
+
+onMounted(() => {
+  setWebsocket()
+})
+
+watch(conn, () => {
+  if (conn.value) {
+    conn.value.onmessage = (e: MessageEvent) => {
+      displayMessage(e);
+    };
+  }
+});
+
+const send = () => {
+  try {
+    const message:Message = {
+      userID: userID,
+      name: name.value,
+      body: sentMessage.value,
+      messageID: uuidv4(),
+    }
+    conn.value.send(JSON.stringify(message));
+    sentMessage.value = "";
+    nextTick(() => {
+      resize()
+    })
+  } catch (error: any) {
+    errorMessage.value = "error sending message"
+  }
+};
+
+const displayMessage = (e: MessageEvent) => {
+  const data = JSON.parse(e.data);
+  const message: Message = {
+    userID: data.userID,
+    body: data.body,
+    name: data.name,
+    messageID: data.messageID,
+  }
+  messages.value.push(message);
+  scrollToBottom(data.userID)
+  // setTimeout(() => {
+  //   messages.value.shift()
+  // }, 5000)
+};
+
+const removeMessage = (id: string) => {
+  const messageToRemove = messages.value.find((item) => item.messageID === id)
+  if(messageToRemove){
+    console.log(messageToRemove.body)
+    const index = messages.value.indexOf(messageToRemove)
+    messages.value.splice(index, 1)
+  }
+}
+
+onUnmounted(() => {
+  conn.value.close()
+})
+
+const scrollToBottom = (id: string) => {
+  if (chatBody.value && (id === userID || chatBody.value.scrollTop + 5 > chatBody.value.scrollHeight - chatBody.value.clientHeight)) {
+    nextTick(() => {
+      chatBody.value.scrollTop = chatBody.value.scrollHeight
+    })
+  }
+}
+
+const resize = () => {
+  textArea.value.style.height = 'auto'
+  if (textArea.value.scrollHeight < 104) {
+    textArea.value.style.height = textArea.value.scrollHeight + 'px'
+  } else {
+    textArea.value.style.height = '6.5rem'
+  }
+  if (textArea.value.scrollHeight > 40) {
+    textArea.value.classList.add('expanded-text')
+  } else {
+    textArea.value.classList.remove('expanded-text')
+  }
+}
+
+const toggleEnterNameModal = () => {
+  isShowEnterNameModal.value = !isShowEnterNameModal.value
+}
+
+const setName = (value: string) => {
+  name.value = value
+  isShowEnterNameModal.value = false
+}
+</script>
+
+<style scoped>
+.chat-body {
+  scroll-behavior: smooth;
+}
+
+.expanded-text {
+  overflow-y: auto;
+}
+</style>

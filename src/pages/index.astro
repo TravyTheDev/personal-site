@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Me from '../components/Me.astro';
 import Navbar from '../components/Navbar.vue';
+import Chat from '../components/Chat.vue';
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
@@ -11,6 +12,9 @@ import Navbar from '../components/Navbar.vue';
 		<Me />
 		<div>
 			HEY
+		</div>
+		<div>
+			<Chat client:only="vue"/>
 		</div>
 	</main>
 </Layout>

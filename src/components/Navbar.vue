@@ -40,7 +40,6 @@ watch(evtSource, () => {
         evtSource.value.onmessage = (e: MessageEvent) => {
             const data = JSON.parse(e.data)
             messageData.value = data
-            console.log(messageData.value)
         }
         evtSource.value.onerror = (err: MessageEvent) => {
             console.error("event source failed", err)
