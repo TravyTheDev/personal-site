@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Me from '../components/Me.astro';
+import Navbar from '../components/Navbar.vue';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Travis Kleckley Software Engineer">
 	<main>
+		<Navbar client:only="vue" />
 		<div>SOMETHING</div>
 		<Me />
 		<div>
