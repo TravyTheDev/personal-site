@@ -4,7 +4,16 @@
     <div v-if="isOpen" class="relative h-[75vh] flex flex-col overflow-y-hidden mx-auto max-w-screen-sm bg-zinc-800 text-white">
       <div ref="chatBody" class="mx-2 h-[80vh] pb-4 overflow-y-auto chat-body whitespace-pre-line">
         <div class="flex flex-col mx-2" v-for="message in messages">
-          <ChatMessage :message="message" :user-i-d="userID" :name="name" @remove="removeMessage" />
+          <div class="self-end flex flex-col items-end max-w-[66%]" v-if="name && message.userID == userID">
+            <p class="font-semibold text-sm">{{ message.name }}:</p>
+            <p class="border border-orange-600 rounded-l-lg rounded-br-lg bg-orange-600 px-2 py-1 break-words w-full">{{
+              message.body }}</p>
+          </div>
+          <div class="self-start max-w-[66%]" v-else>
+            <p class="font-semibold text-sm">{{ message.name }}:</p>
+            <p class="break-words w-full border border-sky-900 rounded-r-lg rounded-bl-lg bg-sky-900 px-2 py-1">{{
+              message.body }}</p>
+          </div>
         </div>
       </div>
       <div v-if="conn && name" class="w-full bg-zinc-800 border-t border-white">
@@ -24,7 +33,6 @@
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import EnterNameModal from './EnterNameModal.vue';
 import { v4 as uuidv4 } from 'uuid';
-import ChatMessage from './ChatMessage.vue';
 
 const name = ref("")
 const isOpen = ref(false)
@@ -102,18 +110,14 @@ const displayMessage = (e: MessageEvent) => {
   }
   messages.value.push(message);
   scrollToBottom(data.userID)
-  // setTimeout(() => {
-  //   messages.value.shift()
-  // }, 5000)
+  setTimeout(() => {
+    removeMessage(message.messageID)
+  }, 10000)
 };
 
 const removeMessage = (id: string) => {
-  const messageToRemove = messages.value.find((item) => item.messageID === id)
-  if(messageToRemove){
-    console.log(messageToRemove.body)
-    const index = messages.value.indexOf(messageToRemove)
-    messages.value.splice(index, 1)
-  }
+  const filtered = messages.value.filter((item) => item.messageID !== id)
+  messages.value = filtered
 }
 
 onUnmounted(() => {
