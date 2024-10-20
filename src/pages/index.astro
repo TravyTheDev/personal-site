@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Me from '../components/Me.astro';
 import Navbar from '../components/Navbar.vue';
 import Hero from '../components/Hero.astro';
+import Products from '../components/Products.astro';
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
@@ -13,6 +14,7 @@ import Hero from '../components/Hero.astro';
 				<Navbar client:only="vue" />
 				<div class="mx-4">
 					<Me />
+					<Products />
 				</div>
 			</div>
 		</div>
