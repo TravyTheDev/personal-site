@@ -1,12 +1,12 @@
 <template>
-    <div class="relative py-2">
+    <div class="sticky top-0 py-2 bg-white text-black z-10">
         <div class="flex w-full justify-between justify-center items-center font-semibold divide-x">
-            <button class="w-full">Home</button>
-            <button class="w-full">About</button>
-            <button class="w-full">Products</button>
-            <button class="w-full">Contact</button>
+            <a href="#home" class="w-full hover:cursor-pointer text-center">Home</a>
+            <a href="#about" class="w-full hover:cursor-pointer text-center">About</a>
+            <a href="#products" class="w-full hover:cursor-pointer text-center">Products</a>
+            <a href="#contact" class="w-full hover:cursor-pointer text-center">Contact</a>
         </div>
-        <p class="absolute translate-y-2 bottom-0 right-0 text-sm border-r border-b">{{ messageData?.msg }}</p>
+        <p class="bg-white text-black absolute translate-y-2 bottom-0 right-0 text-sm border-r border-b">{{ messageData?.msg }}</p>
     </div>
 </template>
 

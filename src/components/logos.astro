@@ -1,0 +1,107 @@
+---
+
+---
+
+<div class="w-full flex flex-col items-center">
+    <div class="container">
+        <div class="cube">
+            <div class="face top">
+                <img src="/images/nodelogo.png" alt="Node" />
+            </div>
+            <div class="face bottom">
+                <img src="/images/Vue.js_Logo_2.svg.png" alt="Vue" />
+            </div>
+            <div class="face left">
+                <img src="/images/reactlogo.png" alt="React" />
+            </div>
+            <div class="face right">
+                <img src="/images/Laravel.png" alt="Laravel" />
+            </div>
+            <div class="face front">
+                <img src="/images/Go.png" alt="Go" />
+            </div>
+            <div class="face back">
+                <img class="rotate-90" src="/images/TypeScript.png" alt="TypeScript" />
+            </div>
+        </div>
+    
+    </div>
+    <div>
+        <p>Not enough sides on the cube... and 8 sided dice look goofy</p>
+        <div class="flex justify-center">
+            <img class="w-[100px]" src="/images/Tailwind_CSS.png" alt="Tailwind">
+            <img class="w-[100px]" src="/images/PostgresSQL.png" alt="Postgres">
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes turn {
+        from {
+            transform: rotate3d(0, 0, 0, 0);
+        }
+        to {
+            transform: rotate3d(1, 1, 0, 360deg);
+        }
+    }
+
+    .container {
+        width: 100px;
+        height: 100px;
+        perspective: 250px;
+        margin: 50px;
+    }
+
+    .cube {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        animation: turn 5s linear infinite;
+    }
+
+    .face {
+        width: 100px;
+        height: 100px;
+        background: white;
+        border: 2px solid black;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        font-size: 2rem;
+        transition: transform 500ms;
+    }
+
+    .front {
+        transform: translateZ(50px);
+    }
+
+    .back {
+        transform: translateZ(-50px) rotateY(-180deg);
+    }
+
+    .left {
+        transform: translateX(-50px) rotateY(-90deg);
+    }
+
+    .right {
+        transform: translateX(50px) rotateY(90deg);
+    }
+
+    .top {
+        transform: translateY(-50px) rotateX(90deg);
+    }
+
+    .bottom {
+        transform: translateY(50px) rotateX(-90deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cube {
+            animation: none;
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    }
+</style>

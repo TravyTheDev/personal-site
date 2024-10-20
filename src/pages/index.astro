@@ -2,22 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Me from '../components/Me.astro';
 import Navbar from '../components/Navbar.vue';
-import Chat from '../components/Chat.vue';
 import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
 	<Hero />
-	<main class="mx-auto max-w-screen-md">
-		<div class="mx-2">
-			<Navbar client:only="vue" />
-			<div>SOMETHING</div>
-			<Me />
-			<div>
-				HEY
-			</div>
-			<div>
-				<Chat client:only="vue"/>
+	<main class="bg-zinc-600">
+		<div class="mx-auto max-w-screen-md">
+			<div class="mx-2 bg-zinc-800 text-white relative">
+				<Navbar client:only="vue" />
+				<div class="mx-4">
+					<Me />
+				</div>
 			</div>
 		</div>
 	</main>

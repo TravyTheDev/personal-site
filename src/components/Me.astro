@@ -1,11 +1,25 @@
 ---
+import Logos from "./logos.astro";
+
 
 ---
-<div class="flex flex-col items-center sm:flex-row gap-1">
-    <img class="max-w-[300px]" src="/images/profilePic1.png" alt="Picture of Travis">
-    <div>
+<div id="about" class="py-4">
+    <h1 class="text-2xl text-center pb-4">About me</h1>
+    <div class="flex flex-col items-center sm:flex-row sm:items-start gap-1">
+        <div class="max-w-[300px]">
+            <img class="" src="/images/profilePic1.png" alt="Picture of Travis">
+            <div>
+                <p>I really love coding.</p>
+                <p>You know how some people in job interviews say, "____ is my passion," and they're totally lying? I'm not. This is it. I love it.</p>
+                <br />
+                <p>When I'm not doing this I enjoy weight training, competing in video game tournaments, chilling on the beach, snowboarding and making short films.</p>
+            </div>
+        </div>
+        <Logos />
+    </div>
+    <div class="py-4 mt-4 text-sm border-t border-b">
         <p>There's a live chat in here, did you find it?</p>
         <p>If you found it, contact me and tell me to get on, if you didn't find it, contact me anyway and I'll tell you how to get on.</p>
-        <p>In the navbar it should tell you when someone else connected or disconnected so you can chat with everyone on here.</p>
+        <p>In the navbar it should tell you when someone else connected so you can chat with everyone on here.</p>
     </div>
 </div>

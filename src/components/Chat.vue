@@ -1,7 +1,12 @@
 <template>
   <div class="mx-2">
-    <button @click="toggleChat" class="bg-slate-500 text-white text-right">{{ isOpen ? 'Close chat' : 'Open chat' }}</button>
-    <div v-if="isOpen" class="relative h-[75vh] flex flex-col overflow-y-hidden mx-auto max-w-screen-sm bg-zinc-800 text-white">
+    <div class="w-full text-right">
+      <button @click="toggleChat" class="bg-zinc-500 text-white px-2">
+        {{ isOpen ? 'Close chat' : 'Open chat' }}
+      </button>
+    </div>
+    <div v-if="isOpen"
+      class="relative h-[75vh] mb-4 flex flex-col border overflow-y-hidden mx-auto max-w-screen-sm bg-zinc-700 text-white">
       <div ref="chatBody" class="mx-2 h-[80vh] pb-4 overflow-y-auto chat-body whitespace-pre-line">
         <div class="flex flex-col mx-2" v-for="message in messages">
           <div class="self-end flex flex-col items-end max-w-[66%]" v-if="name && message.userID == userID">
@@ -56,11 +61,8 @@ const conn = ref();
 
 const toggleChat = () => {
   isOpen.value = !isOpen.value
-  if(isOpen.value){
-    name.value = ""
+  if (isOpen.value) {
     messages.value.length = 0
-  }else {
-    isShowEnterNameModal.value = true
   }
 }
 
@@ -84,7 +86,7 @@ watch(conn, () => {
 
 const send = () => {
   try {
-    const message:Message = {
+    const message: Message = {
       userID: userID,
       name: name.value,
       body: sentMessage.value,

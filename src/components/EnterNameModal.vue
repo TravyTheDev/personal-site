@@ -20,10 +20,8 @@ const emit = defineEmits(['close-modal', 'send-name'])
 const name = ref("")
 const sum = ref(0)
 
-const firstNum = 1
-const secondNum = 1
-// const firstNum = Math.floor(Math.random() * 100) + 1;
-// const secondNum = Math.floor(Math.random() * 100) + 1;
+const firstNum = Math.floor(Math.random() * 100) + 1;
+const secondNum = Math.floor(Math.random() * 100) + 1;
 
 const submit = () => {
     if (sum.value !== firstNum + secondNum) {
