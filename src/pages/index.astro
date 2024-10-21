@@ -1,26 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Me from '../components/Me.astro';
-import Navbar from '../components/Navbar.vue';
-import Hero from '../components/Hero.astro';
-import Products from '../components/Products.astro';
+import Layout from "../layouts/Layout.astro";
+import Me from "../components/Me.astro";
+import Navbar from "../components/Navbar.vue";
+import Hero from "../components/Hero.astro";
+import Products from "../components/Products.astro";
+import GetStarted from "../components/GetStarted.astro";
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
 	<Hero />
 	<main class="bg-zinc-600">
-		<div class="mx-auto max-w-screen-md">
+		<div class="mx-auto max-w-screen-md py-4">
 			<div class="mx-2 bg-zinc-800 text-white relative">
 				<Navbar client:only="vue" />
 				<div class="mx-4">
 					<Me />
 					<Products />
+					<GetStarted />
 				</div>
 			</div>
 		</div>
 	</main>
 </Layout>
 
-<style>
-	
-</style>
+<style></style>

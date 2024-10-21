@@ -1,12 +1,12 @@
 <template>
-    <div class="sticky top-0 py-2 bg-white text-black z-10">
+    <div class="sticky top-0 py-2 bg-white text-black z-10 text-sm sm:text-base">
         <div class="flex w-full justify-between justify-center items-center font-semibold divide-x">
             <a href="#home" class="w-full hover:cursor-pointer text-center">Home</a>
             <a href="#about" class="w-full hover:cursor-pointer text-center">About</a>
             <a href="#products" class="w-full hover:cursor-pointer text-center">Products</a>
-            <a href="#contact" class="w-full hover:cursor-pointer text-center">Contact</a>
+            <a href="#get-started" class="w-full hover:cursor-pointer text-center">Get Started</a>
         </div>
-        <p class="bg-white text-black absolute translate-y-2 bottom-0 right-0 text-sm border-r border-b">{{ messageData?.msg }}</p>
+        <p v-if="messageData" class="bg-white text-black absolute translate-y-2 bottom-0 right-0 text-sm border-r border-b">{{ messageData?.msg }}</p>
     </div>
 </template>
 
