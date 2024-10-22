@@ -24,24 +24,24 @@
 const canvas = document.getElementsByTagName('canvas')[0];
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
-
+//old-site
+// let config = {
+//   TEXTURE_DOWNSAMPLE: 1,
+//   DENSITY_DISSIPATION: 0.98,
+//   VELOCITY_DISSIPATION: 0.99,
+//   PRESSURE_DISSIPATION: 0.8,
+//   PRESSURE_ITERATIONS: 25,
+//   CURL: 7,
+//   SPLAT_RADIUS: 0.001 };
+//Originals
 let config = {
   TEXTURE_DOWNSAMPLE: 1,
   DENSITY_DISSIPATION: 0.98,
   VELOCITY_DISSIPATION: 0.99,
   PRESSURE_DISSIPATION: 0.8,
   PRESSURE_ITERATIONS: 25,
-  CURL: 7,
-  SPLAT_RADIUS: 0.001 };
-//Originals
-//let config = {
-  // TEXTURE_DOWNSAMPLE: 1,
-  // DENSITY_DISSIPATION: 0.98,
-  // VELOCITY_DISSIPATION: 0.99,
-  // PRESSURE_DISSIPATION: 0.8,
-  // PRESSURE_ITERATIONS: 25,
-  // CURL: 28,
-  // SPLAT_RADIUS: 0.004 };
+  CURL: 28,
+  SPLAT_RADIUS: 0.004 };
 
 
 let pointers = [];

@@ -1,5 +1,6 @@
 ---
 import OtherPagesNavbar from "../components/OtherPagesNavbar.astro";
+import ChatBotContainer from "../components/ChatBotContainer.vue";
 import Layout from "../layouts/Layout.astro";
 ---
 <Layout title="Travis Kleckey Software Engineer | Chat bots">
@@ -7,7 +8,20 @@ import Layout from "../layouts/Layout.astro";
         <div class="mx-auto max-w-screen-md">
 			<div class="mx-2 bg-zinc-800 text-white relative">
                 <OtherPagesNavbar />
-                <img src="/images/chat-bot.gif" alt="chat bot">
+                <div class="mx-2 sm:mx-8 mb-8 pt-8 text-xs text-center">
+                    <h1>DISCLAIMER</h1>
+                    <h2>This is on the absolute free tier. That means maximum 15 requests per minute for <strong>everyone</strong> on here so it might just not work.</h2>
+                    <h2>Yes you do have to do the math problem. I know it's annoying, but I need to slow people down.</h2>
+                    <h2>I know the design is ugly, I'd give you a custom one.</h2>
+                </div>
+                <ChatBotContainer client:only="vue" />
+                <div class="py-8 mx-2 sm:mx-8 text-center">
+                    <p class="text-xl">We can:</p>
+                    <p>Use your favorite large language model</p>
+                    <p>Seemlessly integrate into your website</p>
+                    <br />
+                    <p>Desktop versions available</p>
+                </div>
             </div>
             </div>
     </main>
