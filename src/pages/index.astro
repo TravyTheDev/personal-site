@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.astro";
 import Products from "../components/Products.astro";
 import GetStarted from "../components/GetStarted.astro";
+
+const SERVER_URL = import.meta.env.SERVER_URL
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
@@ -12,7 +14,7 @@ import GetStarted from "../components/GetStarted.astro";
 	<main class="bg-zinc-600">
 		<div class="mx-auto max-w-screen-md py-4">
 			<div class="mx-2 bg-zinc-800 text-white relative">
-				<Navbar client:only="vue" />
+				<Navbar SERVER_URL={SERVER_URL} client:only="vue" />
 				<div class="mx-4">
 					<Me />
 					<Products />

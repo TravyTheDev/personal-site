@@ -13,6 +13,10 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 
+const props = defineProps({
+    SERVER_URL: String,
+})
+
 type Message = {
     msg: string;
 }
@@ -24,14 +28,14 @@ const messageData = ref<Message>()
 const timeout = ref()
 
 const setEvtSource = () => {
-    evtSource.value = new EventSource('http://localhost:8080/stream');
+    evtSource.value = new EventSource(`http://${props.SERVER_URL}:8080/stream`);
 }
 
 const broadcastJoin = async () => {
     const message = {
         msg: "Someone is online!"
     }
-    await fetch('http://localhost:8080/messages', {
+    await fetch(`http://${props.SERVER_URL}:8080/messages`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',

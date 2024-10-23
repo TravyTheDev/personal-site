@@ -31,6 +31,10 @@ import { nextTick, ref } from 'vue';
 import SubtractionProblem from './SubtractionProblem.vue';
 import MarkdownIt from 'markdown-it';
 
+const props = defineProps({
+  SERVER_URL: String,
+})
+
 const markdown = new MarkdownIt()
 
 type ChatText = {
@@ -71,7 +75,7 @@ const send = async (vals: NumVals) => {
       difference: vals.difference,
     }
     messages.value.push(chatInput)
-    const data = await fetch(`http://localhost:8080/chat_bot`, {
+    const data = await fetch(`http://${props.SERVER_URL}:8080/chat_bot`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

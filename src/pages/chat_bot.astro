@@ -2,6 +2,8 @@
 import OtherPagesNavbar from "../components/OtherPagesNavbar.astro";
 import ChatBotContainer from "../components/ChatBotContainer.vue";
 import Layout from "../layouts/Layout.astro";
+
+const SERVER_URL = import.meta.env.SERVER_URL
 ---
 
 <Layout title="Travis Kleckey Software Engineer | Chat bots">
@@ -12,15 +14,15 @@ import Layout from "../layouts/Layout.astro";
                 <div class="mx-2 sm:mx-8 mb-8 pt-8 text-center">
                     <h1 class="text-2xl">This is a sample of a chat bot.</h1>
                     <p>
-                        It can look however you want it to look, be wherever you
-                        want it to be and connect to any of the popular large
+                        It can look however you want, be wherever you
+                        want, and connect to any of the popular large
                         language models.
                     </p>
                     <p>
                         Website integration or desktop apps available.
                     </p>
                 </div>
-                <ChatBotContainer client:only="vue" />
+                <ChatBotContainer SERVER_URL={SERVER_URL} client:only="vue" />
                 <div class="text-center text-xs pb-12 pt-6">
                     <p>DISCLAIMER</p>
                     <p>

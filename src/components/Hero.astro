@@ -1,11 +1,11 @@
 ---
 import HeroText from "./HeroText.vue";
 
-
+const SERVER_URL = import.meta.env.SERVER_URL
 ---
 
 <div id="home" class="relative h-screen w-full">
-    <HeroText client:load />
+    <HeroText SERVER_URL={SERVER_URL} client:load />
     <div class="mx-1 h-full">
         <canvas class="h-full w-full"></canvas>
     </div>

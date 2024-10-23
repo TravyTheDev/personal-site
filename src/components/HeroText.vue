@@ -21,7 +21,7 @@
         </div>
         <div class="fixed bottom-0 z-10 w-full" v-if="isShowChat">
             <div class="mx-auto max-w-screen-sm">
-                <Chat client:only="vue" />
+                <Chat :SERVER_URL="SERVER_URL" client:only="vue" />
             </div>
         </div>
     </div>
@@ -30,6 +30,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Chat from './Chat.vue';
+
+const props = defineProps({
+    SERVER_URL: String,
+})
 
 const isShowChat = ref(false)
 const one = ref(false)

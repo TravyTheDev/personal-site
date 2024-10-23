@@ -39,6 +39,10 @@ import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import EnterNameModal from './EnterNameModal.vue';
 import { v4 as uuidv4 } from 'uuid';
 
+const props = defineProps({
+    SERVER_URL: String,
+})
+
 const name = ref("")
 const isOpen = ref(false)
 const userID = uuidv4();
@@ -68,7 +72,7 @@ const toggleChat = () => {
 
 const setWebsocket = () => {
   conn.value = new WebSocket(
-    "ws://localhost:8080/chat"
+    `ws://${props.SERVER_URL}:8080/chat`
   );
 }
 
