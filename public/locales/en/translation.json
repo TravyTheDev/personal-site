@@ -1,0 +1,14 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "products": "Products",
+        "get_started": "Get Started",
+        "join_message": "Someone is online!"
+    },
+    "chat_bot": {
+        "sample": "This is a sample of a chat bot.",
+        "details": "It can look however you want, be wherever you want, and connect to any of the popular large language models.",
+        "whats_available": "Website integration or desktop apps available."
+    }
+}

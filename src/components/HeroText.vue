@@ -11,6 +11,9 @@
                 <img class="mix-blend-color-dodge" src="/images/logo-small3.png">
                 
                 <h1 class="text-4xl">Hello, I'm Travis</h1>
+                <div class="pointer-events-auto text-white">
+                    <slot />
+                </div>
                 <h2>Click all 4 corners</h2>
                 <p><span :class="{'clicked': one}">1</span> - <span :class="{'clicked': two}">2</span></p>
                 <p><span :class="{'clicked': four}">4</span> - <span :class="{'clicked': three}">3</span></p>

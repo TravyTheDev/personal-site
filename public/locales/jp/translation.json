@@ -1,0 +1,14 @@
+{
+    "navbar": {
+        "home": "トップ",
+        "about": "プロフィール",
+        "products": "プロダクト",
+        "get_started": "流れ",
+        "join_message": "誰かが来た！"
+    },
+    "chat_bot": {
+        "sample": "チャットボットのサンプルです。",
+        "details": "好きなデザインにできるしどこでも表示できます。人気LLMに全部接続可能。",
+        "whats_available": "ウェブサイトに統合がデスクトップアプリもあります。"
+    }
+}
