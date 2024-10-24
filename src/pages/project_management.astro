@@ -1,11 +1,6 @@
 ---
+import ProjectImageContainer from "../components/ProjectImageContainer.vue";
 import Layout from "../layouts/Layout.astro";
-import { pmData } from "../projectManagementDataEN";
-
-type PmData = {
-    title: string;
-    image: string;
-};
 ---
 
 <Layout title="Travis Kleckley | Project Management">
@@ -24,25 +19,7 @@ type PmData = {
                     <h2>Avoid tracking cookies</h2>
                 </div>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg mx-2 flex flex-col sm:flex-row gap-6 sm:gap-0 sm:justify-between">
-                {
-                    pmData.map((data: PmData) => (
-                        <div class="bg-gray-700 rounded-lg flex flex-col">
-                            <div>
-                                <div class="sm:w-[225px] h-[143px]">
-                                    <img
-                                        class="rounded-t-lg h-full w-full object-cover"
-                                        src={data.image}
-                                    />
-                                </div>
-                                <div class="text-xl my-4 font-semibold text-gray-200">
-                                    <h3>{data.title}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
+            <ProjectImageContainer client:only="vue" />
             <div class="my-16 text-lg text-gray-200">
                 <h1 class="text-2xl font-semibold">Other features include:</h1>
                 <p>Secure logins</p>
