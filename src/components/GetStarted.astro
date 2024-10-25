@@ -1,26 +1,26 @@
 ---
-
+import { t } from "i18next";
 ---
-<div class="text-center pb-4 border-t">
-    <h1 class="text-3xl py-4">
-        Let's talk
+<div id="get-started" class="text-center pb-4 border-t">
+    <h1 class="text-3xl py-4 font-semibold">
+        {t('get_started.title')}
     </h1>
     <div class="flex flex-col gap-4">
         <div>
-            <h2 class="mb-4">1. Consultation</h2>
-            <p>This is the most important part. We discuss your goals and how to make them come to life.</p>
+            <h2 class="mb-4">1. {t('get_started.consultation.title')}</h2>
+            <p>{t('get_started.consultation.info')}</p>
         </div>
         <div>
-            <h2 class="mb-4">2. Proposal</h2>
-            <p>I send you a proposal that fits your budget.</p>
+            <h2 class="mb-4">2. {t('get_started.proposal.title')}</h2>
+            <p>{t('get_started.proposal.info')}</p>
         </div>
         <div>
-            <h2 class="mb-4">3. Creation</h2>
-            <p>I make the project. You will receive weekly updates.</p>
+            <h2 class="mb-4">3. {t('get_started.creation.title')}</h2>
+            <p>{t('get_started.creation.info')}</p>
         </div>
         <div>
-            <h2 class="mb-4">4. Launch and Support</h2>
-            <p>We're live. Ongoing support is available if needed.</p>
+            <h2 class="mb-4">4. {t('get_started.launch.title')}</h2>
+            <p>{t('get_started.launch.info')}</p>
         </div>
     </div>
 </div>

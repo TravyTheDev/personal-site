@@ -1,21 +1,19 @@
 ---
 import HeroText from "./HeroText.vue";
-import { LanguageSelector } from "astro-i18next/components";
-import i18next from "i18next";
+import i18next, { t } from "i18next";
 const lang = i18next.language
 const SERVER_URL = import.meta.env.SERVER_URL
 ---
 
 <div id="home" class="relative h-screen w-full">
-    <HeroText SERVER_URL={SERVER_URL} client:load>
+    <HeroText clickCornersText={t('hero.click_corners').toString()} SERVER_URL={SERVER_URL} client:load>
         <div class="border px-2">
             {
                 lang == "en" ?
                 <a href="/jp">日本語</a> :
-                <a href="/">英語</a>
+                <a href="/">English</a>
             }
         </div>
-        <!-- <LanguageSelector showFlag={false} languageMapping={{ jp: "日本語" }} class="bg-transparent text-white" /> -->
     </HeroText>
     <div class="mx-1 h-full">
         <canvas class="h-full w-full"></canvas>

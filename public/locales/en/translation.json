@@ -6,6 +6,61 @@
         "get_started": "Get Started",
         "join_message": "Someone is online!"
     },
+    "hero": {
+        "click_corners": "Click all 4 corners"
+    },
+    "about": {
+        "about_me": "About Me",
+        "love_coding": "I really love coding.",
+        "not_lying": "You know how some people in job interviews say, \"____ is my passion,\" and they're totally lying?\n I'm not. This is it. I love it.",
+        "hidden_chat": "There's a live chat in here, did you find it?",
+        "contact_me": "If you found it, contact me and tell me to get on, if you didn't find it, contact me anyway and I'll tell you how to get on.",
+        "navbar_info": "In the navbar it should tell you when someone else connected so you can chat with everyone on here."
+    },
+    "logos": {
+        "goofy_stuff": "I never get to make goofy stuff like this on client systems.",
+        "not_enough_sides": "Not enough sides on the cube..."
+    },
+    "products": {
+        "title": "Products",
+        "chat_bot" : {
+            "title": "AI Chat bots",
+            "info": "AI chat bots for the desktop or integrated into your website, connecting to your favorite large language model."
+        },
+        "project_management": {
+            "title": "Project Management",
+            "info": "Web API and desktop application featuring real time collaboration and notifications.",
+            "professional": "...This page is much more professional."
+        },
+        "kick_him" : {
+            "title": "Kick Him in the Middle!",
+            "info": "A multiplayer fighting game I've been working on. You gotta kick the other guy in the middle and not get kicked to win.",
+            "site": "When it's playable I'll make a real site. This is just the code."
+        },
+        "private_chats" : {
+            "title": "Private Chats",
+            "info": "Extra private chatrooms. Messages self-delete after 30 seconds. Rooms auto delete after 10 seconds when no one is in them."
+        }
+    },
+    "get_started": {
+        "title": "Let's talk",
+        "consultation": {
+            "title": "Consultation",
+            "info": "This is the most important part. We discuss your goals and how to make them come to life."
+        },
+        "proposal": {
+            "title": "Proposal",
+            "info": "I send you a proposal that fits your budget."
+        },
+        "creation": {
+            "title": "Creation",
+            "info": "I make the project. You will receive weekly updates."
+        },
+        "launch": {
+            "title": "Launch and Support",
+            "info": "We're live. Ongoing support is available if needed."
+        }
+    },
     "chat_bot": {
         "sample": "This is a sample of a chat bot.",
         "details": "It can look however you want, be wherever you want, and connect to any of the popular large language models.",

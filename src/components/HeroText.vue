@@ -7,14 +7,14 @@
             <div @click="touched('three')" class="absolute h-24 w-24 bottom-0 right-0"></div>
             <div @click="touched('four')" class="absolute h-24 w-24 bottom-0 left-0"></div>
             <div
-                class="pointer-events-none absolute text-white flex flex-col gap-1 self-start w-full m-auto items-center justify-center top-0 bottom-0 w-auto">
+                class="pointer-events-none absolute text-white flex flex-col gap-2 self-start w-full m-auto items-center justify-center top-0 bottom-0 w-auto">
                 <img class="mix-blend-color-dodge" src="/images/logo-small3.png">
                 
                 <h1 class="text-4xl">Hello, I'm Travis</h1>
                 <div class="pointer-events-auto text-white">
                     <slot />
                 </div>
-                <h2>Click all 4 corners</h2>
+                <h2>{{ clickCornersText }}</h2>
                 <p><span :class="{'clicked': one}">1</span> - <span :class="{'clicked': two}">2</span></p>
                 <p><span :class="{'clicked': four}">4</span> - <span :class="{'clicked': three}">3</span></p>
                 <a href="#about" @click="showChat" v-if="four"
@@ -36,6 +36,7 @@ import Chat from './Chat.vue';
 
 const props = defineProps({
     SERVER_URL: String,
+    clickCornersText: String,
 })
 
 const isShowChat = ref(false)
