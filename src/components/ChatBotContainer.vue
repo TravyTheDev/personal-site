@@ -76,7 +76,7 @@ const send = async (vals: NumVals) => {
       difference: vals.difference,
     }
     messages.value.push(chatInput)
-    const data = await fetch(`http://${props.SERVER_URL}:${props.PORT}/chat_bot`, {
+    const data = await fetch(`http://${props.SERVER_URL}:${props.PORT}/my_site_api/chat_bot`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

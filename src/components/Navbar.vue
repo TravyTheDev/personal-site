@@ -34,14 +34,14 @@ const messageData = ref<Message>()
 const timeout = ref()
 
 const setEvtSource = () => {
-    evtSource.value = new EventSource(`http://${props.SERVER_URL}:${props.PORT}/stream`);
+    evtSource.value = new EventSource(`http://${props.SERVER_URL}:${props.PORT}/my_site_api/stream`);
 }
 
 const broadcastJoin = async () => {
     const message = {
         msg: props.joinMessage
     }
-    await fetch(`http://${props.SERVER_URL}:${props.PORT}/messages`, {
+    await fetch(`http://${props.SERVER_URL}:${props.PORT}/my_site_api/messages`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',

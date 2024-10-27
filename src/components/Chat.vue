@@ -73,7 +73,7 @@ const toggleChat = () => {
 
 const setWebsocket = () => {
   conn.value = new WebSocket(
-    `ws://${props.SERVER_URL}:${props.PORT}/chat`
+    `ws://${props.SERVER_URL}:${props.PORT}/my_site_api/chat`
   );
 }
 
