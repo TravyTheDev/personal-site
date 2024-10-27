@@ -109,5 +109,10 @@
             "mobile": "・モバイルアプリ",
             "i18n": "国際化"
         }
+    },
+    "other_navbar": {
+        "home": "ホーム",
+        "chat_bot": "チャートボット",
+        "project_management": "プロジェクト管理"
     }
 }

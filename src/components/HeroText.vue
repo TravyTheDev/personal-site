@@ -24,7 +24,7 @@
         </div>
         <div class="fixed bottom-0 z-10 w-full" v-if="isShowChat">
             <div class="mx-auto max-w-screen-sm">
-                <Chat :SERVER_URL="SERVER_URL" client:only="vue" />
+                <Chat :PORT="PORT" :SERVER_URL="SERVER_URL" client:only="vue" />
             </div>
         </div>
     </div>
@@ -36,6 +36,7 @@ import Chat from './Chat.vue';
 
 const props = defineProps({
     SERVER_URL: String,
+    PORT: String,
     clickCornersText: String,
 })
 

@@ -1,0 +1,12 @@
+---
+//@ts-ignore lol
+import { localizePath } from "astro-i18next";
+import { t } from "i18next";
+---
+<div class="sticky top-0 py-2 bg-white text-black z-10 text-sm sm:text-base">
+    <div class="flex w-full justify-between justify-center items-center font-semibold divide-x">
+        <a href={localizePath("/")} class="w-full hover:cursor-pointer text-center">{t('other_navbar.home')}</a>
+        <a href={localizePath("/chat_bot")} class="w-full hover:cursor-pointer text-center">{t('other_navbar.chat_bot')}</a>
+        <a href={localizePath("/project_management")} class="w-full hover:cursor-pointer text-center">{t('other_navbar.project_management')}</a>
+    </div>
+</div>

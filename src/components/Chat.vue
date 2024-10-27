@@ -41,6 +41,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const props = defineProps({
     SERVER_URL: String,
+    PORT: String,
 })
 
 const name = ref("")
@@ -72,7 +73,7 @@ const toggleChat = () => {
 
 const setWebsocket = () => {
   conn.value = new WebSocket(
-    `ws://${props.SERVER_URL}:8080/chat`
+    `ws://${props.SERVER_URL}:${props.PORT}/chat`
   );
 }
 

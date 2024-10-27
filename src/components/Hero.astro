@@ -3,10 +3,11 @@ import ChangeLanguage from "./ChangeLanguage.astro";
 import HeroText from "./HeroText.vue";
 import { t } from "i18next";
 const SERVER_URL = import.meta.env.SERVER_URL
+const PORT = import.meta.env.PORT
 ---
 
 <div id="home" class="relative h-screen w-full">
-    <HeroText clickCornersText={t('hero.click_corners').toString()} SERVER_URL={SERVER_URL} client:load>
+    <HeroText clickCornersText={t('hero.click_corners').toString()} PORT={PORT} SERVER_URL={SERVER_URL} client:load>
         <ChangeLanguage />
     </HeroText>
     <div class="mx-1 h-full">

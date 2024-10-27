@@ -2,16 +2,19 @@
 import { t, changeLanguage } from "i18next";
 import ChatBotContainer from "../components/ChatBotContainer.vue";
 import Layout from "../layouts/Layout.astro";
+import OtherPagesNavbar from "../components/OtherPagesNavbar.astro";
 
 changeLanguage("en");
 
 const SERVER_URL = import.meta.env.SERVER_URL;
+const PORT = import.meta.env.PORT;
 ---
 
 <Layout title="Travis Kleckey Software Engineer | Chat bots">
     <main class="bg-zinc-600">
         <div class="mx-auto max-w-screen-md">
             <div class="mx-2 bg-zinc-800 text-white relative">
+                <OtherPagesNavbar />
                 <div class="mx-2 sm:mx-8 mb-8 pt-8 text-center">
                     <h1 class="text-2xl font-semibold">{t('chat_bot.sample')}</h1>
                     <p>
@@ -21,7 +24,7 @@ const SERVER_URL = import.meta.env.SERVER_URL;
                         {t('chat_bot.whats_available')}
                     </p>
                 </div>
-                <ChatBotContainer SERVER_URL={SERVER_URL} client:only="vue" />
+                <ChatBotContainer PORT={PORT} SERVER_URL={SERVER_URL} client:only="vue" />
                 <div class="text-center text-xs pb-12 pt-6">
                     <p>{t('chat_bot.disclaimer.title')}</p>
                     <p>{t('chat_bot.disclaimer.tier_info')}</p>

@@ -109,5 +109,10 @@
             "mobile": "・Mobile app",
             "i18n": "internationalization"
         }
+    },
+    "other_navbar": {
+        "home": "Home",
+        "chat_bot": "Chat Bot",
+        "project_management": "Project Management"
     }
 }

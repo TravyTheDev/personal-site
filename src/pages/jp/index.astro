@@ -10,6 +10,7 @@ import { t, changeLanguage } from "i18next";
 changeLanguage("jp");
 
 const SERVER_URL = import.meta.env.SERVER_URL;
+const PORT = import.meta.env.PORT;
 ---
 
 <Layout title="Travis Kleckley Software Engineer">
@@ -18,7 +19,9 @@ const SERVER_URL = import.meta.env.SERVER_URL;
 		<div class="mx-auto max-w-screen-md py-4">
 			<div class="mx-2 bg-zinc-800 text-white relative">
 				<Navbar
-				 SERVER_URL={SERVER_URL} client:only="vue"
+				 SERVER_URL={SERVER_URL}
+				 PORT={PORT} 
+				 client:only="vue"
 				 home={t('navbar.home').toString()} 
 				 about={t('navbar.about').toString()} 
 				 products={t('navbar.products').toString()} 

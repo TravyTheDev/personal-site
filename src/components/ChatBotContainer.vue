@@ -33,6 +33,7 @@ import MarkdownIt from 'markdown-it';
 
 const props = defineProps({
   SERVER_URL: String,
+  PORT: String
 })
 
 const markdown = new MarkdownIt()
@@ -75,7 +76,7 @@ const send = async (vals: NumVals) => {
       difference: vals.difference,
     }
     messages.value.push(chatInput)
-    const data = await fetch(`http://${props.SERVER_URL}:8080/chat_bot`, {
+    const data = await fetch(`http://${props.SERVER_URL}:${props.PORT}/chat_bot`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',

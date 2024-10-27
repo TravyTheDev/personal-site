@@ -15,6 +15,7 @@ import { onMounted, ref, watch } from 'vue';
 
 const props = defineProps({
     SERVER_URL: String,
+    PORT: String,
     home: String,
     about: String,
     products: String,
@@ -33,14 +34,14 @@ const messageData = ref<Message>()
 const timeout = ref()
 
 const setEvtSource = () => {
-    evtSource.value = new EventSource(`http://${props.SERVER_URL}:8080/stream`);
+    evtSource.value = new EventSource(`http://${props.SERVER_URL}:${props.PORT}/stream`);
 }
 
 const broadcastJoin = async () => {
     const message = {
         msg: props.joinMessage
     }
-    await fetch(`http://${props.SERVER_URL}:8080/messages`, {
+    await fetch(`http://${props.SERVER_URL}:${props.PORT}/messages`, {
         method: "POST",
         headers: {
             'Accept': 'application/json',

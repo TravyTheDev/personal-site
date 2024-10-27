@@ -2,6 +2,7 @@
 import i18next, { changeLanguage, t } from "i18next";
 import ProjectImageContainer from "../../components/ProjectImageContainer.vue";
 import Layout from "../../layouts/Layout.astro";
+import OtherPagesNavbar from "../../components/OtherPagesNavbar.astro";
 
 changeLanguage("jp");
 
@@ -10,6 +11,7 @@ const lang = i18next.language;
 
 <Layout title="Travis Kleckley | Project Management">
     <main class="bg-gray-900 pb-16">
+        <OtherPagesNavbar />
         <div class="max-w-screen-md mx-auto text-white text-center">
             <div class="py-16">
                 <div
