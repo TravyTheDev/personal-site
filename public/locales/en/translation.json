@@ -61,9 +61,53 @@
             "info": "We're live. Ongoing support is available if needed."
         }
     },
+    "contact": {
+        "email": "email"
+    },
     "chat_bot": {
         "sample": "This is a sample of a chat bot.",
         "details": "It can look however you want, be wherever you want, and connect to any of the popular large language models.",
-        "whats_available": "Website integration or desktop apps available."
+        "whats_available": "Website integration or desktop apps available.",
+        "disclaimer": {
+            "title": "DISCLAIMER",
+            "tier_info": "This is on the absolute free tier. That means maximum 15 requests per minute for -everyone- on here so it might just not work.",
+            "math": "Yes you do have to do the math problem. I know it's annoying, but I need to slow people down.",
+            "design": "I know the design is ugly, I'd give you a custom one."
+        }
+    },
+    "project_management": {
+        "top": {
+            "privacy_first": "Privacy First Project Management System",
+            "own_data": "Own your data",
+            "hosting": "Host on your own server"
+        },
+        "sub_heading": {
+            "access": "Access through a desktop application",
+            "cookies": "Avoid tracking cookies"
+        },
+        "other_features": {
+            "title": "Other features include:",
+            "login": "Secure logins",
+            "search": "Search",
+            "sub_tasks": "Sub-tasks",
+            "notes": "Private notes"
+        },
+        "reasons": {
+            "privacy_title": "True privacy",
+            "privacy_info": "No one sees your data unless you want them to.",
+            "your_server_title": "Your server",
+            "your_server_info": "Your own server and database can only be accessed by your team's desktop applications.",
+            "ownership_title": "Ownership",
+            "ownership_info": "There is no subscription."
+        },
+        "roadmap": {
+            "title": "Roadmap",
+            "version": "This is still in alpha.",
+            "design": "・Overall design changes",
+            "chart": "・Rewrite the gantt chart",
+            "pagination": "・Pagination",
+            "mobile": "・Mobile app",
+            "i18n": "internationalization"
+        }
     }
 }

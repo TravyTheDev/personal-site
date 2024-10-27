@@ -9,8 +9,9 @@
                             :src="data.image"
                         />
                     </div>
-                    <div class="text-xl my-4 font-semibold text-gray-200">
-                        <h3>{{data.title}}</h3>
+                    <div class="text-xl my-4 text-gray-200">
+                        <h3 v-if="lang === 'en'">{{data.title}}</h3>
+                        <h3 v-else>{{data.titleJP}}</h3>
                     </div>
                 </div>
             </div>
@@ -21,8 +22,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { pmData } from "../projectManagementDataEN";
+import { pmData } from "../projectManagementData";
 import ImageHolder from "./ImageHolder.vue";
+
+const props = defineProps({
+    lang: String,
+})
 
 const imgSource = ref("")
 const isShowModal = ref(false)

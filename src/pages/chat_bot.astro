@@ -23,17 +23,10 @@ const SERVER_URL = import.meta.env.SERVER_URL;
                 </div>
                 <ChatBotContainer SERVER_URL={SERVER_URL} client:only="vue" />
                 <div class="text-center text-xs pb-12 pt-6">
-                    <p>DISCLAIMER</p>
-                    <p>
-                        This is on the absolute free tier. That means maximum 15
-                        requests per minute for <strong>everyone</strong> on here
-                        so it might just not work.
-                    </p>
-                    <p>
-                        Yes you do have to do the math problem. I know it's
-                        annoying, but I need to slow people down.
-                    </p>
-                    <p>I know the design is ugly, I'd give you a custom one.</p>
+                    <p>{t('chat_bot.disclaimer.title')}</p>
+                    <p>{t('chat_bot.disclaimer.tier_info')}</p>
+                    <p>{t('chat_bot.disclaimer.math')}</p>
+                    <p>{t('chat_bot.disclaimer.design')}</p>
                 </div>
             </div>
         </div>

@@ -1,9 +1,11 @@
 ---
-import { changeLanguage } from "i18next";
+import i18next, { changeLanguage, t } from "i18next";
 import ProjectImageContainer from "../../components/ProjectImageContainer.vue";
 import Layout from "../../layouts/Layout.astro";
 
 changeLanguage("jp");
+
+const lang = i18next.language;
 ---
 
 <Layout title="Travis Kleckley | Project Management">
@@ -13,47 +15,48 @@ changeLanguage("jp");
                 <div
                     class="font-semibold shadow-2xl text-4xl flex flex-col gap-4 py-8 bg-gradient-to-br from-cyan-500 to-blue-500 max-w-screen-md mx-2 sm:mx-auto rounded-2xl"
                 >
-                    <h1>Privacy First Project Management System</h1>
-                    <h2>Own your data</h2>
-                    <h2>Host on your own server</h2>
+                    <h1>{t('project_management.top.privacy_first')}</h1>
+                    <h2>{t('project_management.top.own_data')}</h2>
+                    <h2>{t('project_management.top.hosting')}</h2>
                 </div>
                 <div class="text-gray-400 mt-4 text-xl">
-                    <h2>Access through a desktop application</h2>
-                    <h2>Avoid tracking cookies</h2>
+                    <h2>{t('project_management.sub_heading.access')}</h2>
+                    <h2>{t('project_management.sub_heading.cookies')}</h2>
                 </div>
             </div>
-            <ProjectImageContainer client:only="vue" />
+            <ProjectImageContainer lang={lang} client:only="vue" />
             <div class="my-16 text-lg text-gray-200">
-                <h1 class="text-2xl font-semibold">Other features include:</h1>
-                <p>Secure logins</p>
-                <p>Search</p>
-                <p>Sub-tasks</p>
-                <p>Private notes</p>
+                <h1 class="text-2xl font-semibold">{t('project_management.other_features.title')}</h1>
+                <p>{t('project_management.other_features.login')}</p>
+                <p>{t('project_management.other_features.search')}</p>
+                <p>{t('project_management.other_features.sub_tasks')}</p>
+                <p>{t('project_management.other_features.notes')}</p>
             </div>
             <div class="my-16 text-lg text-gray-200">
-                <div class="flex justify-between">
+                <div class="flex flex-col gap-8 sm:flex-row sm:justify-between sm:gap-0 whitespace-pre-line">
                     <div class="sm:w-[250px]">
-                        <p class="text-xl font-semibold mb-2">True privacy</p>
-                        <p>Have complete control over your data.</p>
+                        <p class="text-xl font-semibold mb-2">{t('project_management.reasons.privacy_title')}</p>
+                        <p>{t('project_management.reasons.privacy_info')}</p>
                     </div>
                     <div class="sm:w-[250px]">
-                        <p class="text-xl font-semibold mb-2">What you get</p>
-                        <p>Your own server and database that can only be accessed by your team's desktop applications.</p>
+                        <p class="text-xl font-semibold mb-2">{t('project_management.reasons.your_server_title')}</p>
+                        <p>{t('project_management.reasons.your_server_info')}</p>
                     </div>
                     <div class="sm:w-[250px]">
-                        <p class="text-xl font-semibold mb-2">Ownership</p>
-                        <p>There is no subscription.</p>
+                        <p class="text-xl font-semibold mb-2">{t('project_management.reasons.ownership_title')}</p>
+                        <p>{t('project_management.reasons.ownership_info')}</p>
                     </div>
                 </div>
             </div>
             <div class="py-8 bg-gray-700 rounded-lg sm:rounded-2xl text-gray-200">
-                <h1 class="text-2xl">Roadmap</h1>
-                <p>This is still pre-alpha and there will be many updates.</p>
+                <h1 class="text-2xl">{t('project_management.roadmap.title')}</h1>
+                <p>{t('project_management.roadmap.version')}</p>
                 <div>
-                    <p>・Overall design changes</p>
-                    <p>・Rewrite the gantt chart</p>
-                    <p>・Pagination</p>
-                    <p>・Mobile app</p>
+                    <p>{t('project_management.roadmap.design')}</p>
+                    <p>{t('project_management.roadmap.chart')}</p>
+                    <p>{t('project_management.roadmap.pagination')}</p>
+                    <p>{t('project_management.roadmap.mobile')}</p>
+                    <p>{t('project_management.roadmap.i18n')}</p>
                 </div>
             </div>
         </div>

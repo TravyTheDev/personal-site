@@ -61,9 +61,53 @@
             "info": "必要な場合は、サイト公開後のサポートも承っております。"
         }
     },
+    "contact": {
+        "email": "メール"
+    },
     "chat_bot": {
         "sample": "チャットボットのサンプルです。",
         "details": "好きなデザインにできるしどこでも表示できます。人気LLMに全部接続可能。",
-        "whats_available": "ウェブサイトに統合がデスクトップアプリもあります。"
+        "whats_available": "ウェブサイトに統合がデスクトップアプリもあります。",
+        "disclaimer": {
+            "title": "免責事項",
+            "tier_info": "100%無料プランだから最大1分の中で15リクエストしか使えない。多分動かなくなる。",
+            "math": "面倒くさいけど数学をしなきゃいけないよ。リクエスト使いすぎちゃうからみんなを遅くしなきゃ。",
+            "design": "これはみにくいですね。カスタムデザインを作ってあげる。"
+        }
+    },
+    "project_management": {
+        "top": {
+            "privacy_first": "プライバシーは第一プロジェクト管理システム",
+            "own_data": "自分のデータを所有",
+            "hosting": "自分のサーバーに接続"
+        },
+        "sub_heading": {
+            "access": "デスクトップアプリで使用",
+            "cookies": "トラッキングクッキーを回避"
+        },
+        "other_features": {
+            "title": "含んでいる機能",
+            "login": "安全ログイン",
+            "search": "検索",
+            "sub_tasks": "子タスク",
+            "notes": "秘密メモ"
+        },
+        "reasons": {
+            "privacy_title": "真のプライバシー",
+            "privacy_info": "許可を持つ人しかデータが\n見えません。",
+            "your_server_title": "自分のサーバー",
+            "your_server_info": "サーバーとデータベースは\nチームのアプリしか接続できません。",
+            "ownership_title": "所有",
+            "ownership_info": "サブスクリプションが\nありません。"
+        },
+        "roadmap": {
+            "title": "ロードマップ",
+            "version": "アルファ版",
+            "design": "・全体的なデザイン変更",
+            "chart": "・ガントチャート書き直し",
+            "pagination": "・パージネーション",
+            "mobile": "・モバイルアプリ",
+            "i18n": "国際化"
+        }
     }
 }

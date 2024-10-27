@@ -1,0 +1,11 @@
+---
+import i18next from "i18next";
+const lang = i18next.language
+---
+<div class="border px-2">
+    {
+        lang == "en" ?
+        <a href={`/jp${Astro.url.pathname}`}>日本語</a> :
+        <a href={`${Astro.url.origin}${Astro.url.pathname.replace('/jp', '')}`}>English</a>
+    }
+</div>
