@@ -1,6 +1,6 @@
 # Personal Site
 
-![]https://github.com/TravyTheDev/personal-site/raw/main/public/images/personal-site.gif?raw=true
+![](https://github.com/TravyTheDev/personal-site/raw/main/public/images/personal-site.gif?raw=true)
 
 This is an astro site with hints of TypeScript(Vue) and a go server running the chat and the AI chat bot.
 
