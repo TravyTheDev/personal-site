@@ -13,3 +13,9 @@ https://www.traviskleckley.com
 Let's be honest the design is kind of ugly.
 
 The chat could focus again on send.
+
+### Lessons learned
+
+nginx will make or break you.
+
+Deploy early.
