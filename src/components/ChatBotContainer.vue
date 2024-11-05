@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="relative h-[75vh] mb-4 flex flex-col overflow-y-hidden mx-auto max-w-screen-sm bg-cyan-500 text-black">
+  <div class="relative h-[75vh] mb-4 flex flex-col overflow-y-hidden mx-auto max-w-screen-sm bg-cyan-500 text-black">
     <div ref="chatBody" class="mx-2 h-[80vh] pb-4 overflow-y-auto chat-body whitespace-pre-line">
       <div class="flex flex-col mx-2" v-for="message in messages">
         <div class="self-end flex flex-col items-end max-w-[66%]" v-if="message.user === 'me'">
@@ -10,13 +9,16 @@
         </div>
         <div class="self-start max-w-[66%]" v-else>
           <p class="font-semibold text-sm">AI:</p>
-          <p v-html="markdown.render(message.text)" class="break-words w-full border border-neutral-200 rounded-r-lg rounded-bl-lg bg-neutral-200 px-2 py-1"></p>
+          <p v-html="markdown.render(message.text)"
+            class="break-words w-full border border-neutral-200 rounded-r-lg rounded-bl-lg bg-neutral-200 px-2 py-1">
+          </p>
         </div>
       </div>
     </div>
     <div class="w-full bg-neutral-200 border-t border-white">
       <div class="bg-neutral-200 py-2 flex gap-2 max-w-screen-sm mx-2 text-nowrap">
-        <textarea ref="textArea" rows="1" class="border border-black rounded-sm w-full bg-neutral-200 my-0 py-2 overflow-y-hidden"
+        <textarea @input="resize" ref="textArea" rows="1"
+          class="border border-black rounded-sm w-full bg-neutral-200 my-0 py-2 overflow-y-hidden"
           v-model="userInput"></textarea>
         <button @click="toggleSubtractionProblem">SEND>></button>
         <p v-if="isShowError">{{ isShowError }}</p>
@@ -30,6 +32,7 @@
 import { nextTick, ref } from 'vue';
 import SubtractionProblem from './SubtractionProblem.vue';
 import MarkdownIt from 'markdown-it';
+import { resizeTextArea } from '../functions';
 
 const props = defineProps({
   SERVER_URL: String,
@@ -43,7 +46,7 @@ type ChatText = {
   text: string;
 }
 
-type NumVals ={
+type NumVals = {
   firstNum: number;
   secondNum: number;
   difference: number;
@@ -57,6 +60,10 @@ const isShowSubtractionProblem = ref(false)
 
 const toggleSubtractionProblem = () => {
   isShowSubtractionProblem.value = !isShowSubtractionProblem.value
+}
+
+const resize = () => {
+  resizeTextArea(textArea)
 }
 
 const send = async (vals: NumVals) => {
@@ -76,7 +83,7 @@ const send = async (vals: NumVals) => {
       difference: vals.difference,
     }
     messages.value.push(chatInput)
-    const data = await fetch(`http://${props.SERVER_URL}:${props.PORT}/my_site_api/chat_bot`, {
+    const data = await fetch(`https://${props.SERVER_URL}/my_site_api/chat_bot`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -89,10 +96,13 @@ const send = async (vals: NumVals) => {
       user: "AI",
       text: chat.toString().replaceAll('```', '`')
     }
-    messages.value.push(botInput)
     userInput.value = ""
+    messages.value.push(botInput)
     nextTick(() => {
-      textArea.value.focus()
+      resize()
+      if (window.innerWidth > 640) {
+        textArea.value.focus()
+      }
     })
   } catch (error) {
     isShowError.value = true

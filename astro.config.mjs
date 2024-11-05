@@ -8,5 +8,6 @@ import astroI18next from "astro-i18next";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), vue(), astroI18next()]
+  integrations: [tailwind(), vue(), astroI18next()],
+  site: 'https://www.traviskleckley.com',
 });

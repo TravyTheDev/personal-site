@@ -38,10 +38,11 @@
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import EnterNameModal from './EnterNameModal.vue';
 import { v4 as uuidv4 } from 'uuid';
+import { resizeTextArea } from '../functions';
 
 const props = defineProps({
-    SERVER_URL: String,
-    PORT: String,
+  SERVER_URL: String,
+  PORT: String,
 })
 
 const name = ref("")
@@ -73,7 +74,7 @@ const toggleChat = () => {
 
 const setWebsocket = () => {
   conn.value = new WebSocket(
-    `ws://${props.SERVER_URL}:${props.PORT}/my_site_api/chat`
+    `wss://${props.SERVER_URL}/my_site_api/chat`
   );
 }
 
@@ -90,6 +91,9 @@ watch(conn, () => {
 });
 
 const send = () => {
+  if (!sentMessage.value) {
+    return
+  }
   try {
     const message: Message = {
       userID: userID,
@@ -101,6 +105,9 @@ const send = () => {
     sentMessage.value = "";
     nextTick(() => {
       resize()
+      if (window.innerWidth > 640) {
+        textArea.value.focus()
+      }
     })
   } catch (error: any) {
     errorMessage.value = "error sending message"
@@ -140,17 +147,7 @@ const scrollToBottom = (id: string) => {
 }
 
 const resize = () => {
-  textArea.value.style.height = 'auto'
-  if (textArea.value.scrollHeight < 104) {
-    textArea.value.style.height = textArea.value.scrollHeight + 'px'
-  } else {
-    textArea.value.style.height = '6.5rem'
-  }
-  if (textArea.value.scrollHeight > 40) {
-    textArea.value.classList.add('expanded-text')
-  } else {
-    textArea.value.classList.remove('expanded-text')
-  }
+  resizeTextArea(textArea)
 }
 
 const toggleEnterNameModal = () => {
