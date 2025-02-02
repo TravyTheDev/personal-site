@@ -7,7 +7,7 @@
             <div @click="touched('three')" class="absolute h-24 w-24 bottom-0 right-0"></div>
             <div @click="touched('four')" class="absolute h-24 w-24 bottom-0 left-0"></div>
             <div
-                class="pointer-events-none absolute text-white flex flex-col gap-2 self-start w-full m-auto items-center justify-center top-0 bottom-0 w-auto">
+                class="pointer-events-none absolute text-white flex flex-col gap-2 w-full m-auto items-center justify-center top-0 bottom-0 w-auto">
                 <img class="mix-blend-color-dodge" src="/images/logo-small3.png">
                 
                 <h1 class="text-4xl">Hello, I'm Travis</h1>
